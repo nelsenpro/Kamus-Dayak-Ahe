@@ -7,7 +7,7 @@
   <meta name="keywords" content="Kamus Dayak, Kamus Kanayatn, Penerjemahan Dayak, Kamus Bahasa Dayak" />
   <meta property="og:title" content="Kamus Dayak Kanayatn ↔ Indonesia" />
   <meta property="og:description" content="Kamus Dayak Kanayatn ↔ Indonesia digital untuk mempermudah penerjemahan kata." />
-  <meta property="og:image" content="https://nelsenpro.github.io/kd/images/preview.jpg" />
+  <meta property="og:image" content="path_to_image.jpg" />
   <meta property="og:url" content="https://nelsenpro.github.io/kd/" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#4CAF50" />
@@ -18,7 +18,6 @@
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
   <link rel="preload" href="style.css" as="style" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header>
@@ -46,9 +45,6 @@
     </div>
     <div id="resultBox" class="result" aria-live="polite"></div>
     <ul id="suggestionsBox" class="suggestions" role="listbox" aria-label="Saran kata"></ul>
-    <button id="installBtn" style="display: none; margin: 20px auto; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer;">
-      Install Aplikasi
-    </button>
   </main>
 
   <footer>
@@ -69,27 +65,10 @@
     });
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./sw.js')
+      navigator.serviceWorker.register('sw.js')
         .then(reg => console.log('Service worker registered.', reg))
         .catch(err => console.error('Service worker registration failed:', err));
     }
-
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      const installBtn = document.getElementById('installBtn');
-      if (installBtn) {
-        installBtn.style.display = 'block';
-        installBtn.addEventListener('click', async () => {
-          installBtn.style.display = 'none';
-          deferredPrompt.prompt();
-          const { outcome } = await deferredPrompt.userChoice;
-          console.log('User response to the install prompt:', outcome);
-          deferredPrompt = null;
-        });
-      }
-    });
   </script>
 
   <style>
