@@ -45,6 +45,9 @@
     </div>
     <div id="resultBox" class="result" aria-live="polite"></div>
     <ul id="suggestionsBox" class="suggestions" role="listbox" aria-label="Saran kata"></ul>
+    <button id="installBtn" style="display: none; margin: 20px auto; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer;">
+      Install Aplikasi
+    </button>
   </main>
 
   <footer>
@@ -65,10 +68,30 @@
     });
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('Service worker registered.', reg))
-        .catch(err => console.error('Service worker registration failed:', err));
-    }
+  navigator.serviceWorker.register('sw.js')
+    .then(reg => console.log('Service worker registered.', reg))
+    .catch(err => console.error('Service worker registration failed:', err));
+}
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  const installBtn = document.getElementById('installBtn');
+  if (installBtn) {
+    installBtn.style.display = 'block';
+
+    installBtn.addEventListener('click', async () => {
+      installBtn.style.display = 'none';
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log('User response to the install prompt:', outcome);
+      deferredPrompt = null;
+    });
+  }
+})
   </script>
 
   <style>
