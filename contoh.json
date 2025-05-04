@@ -1,0 +1,14 @@
+{
+    "kamus": {
+        "id-dayak": {
+            "apa": "ahe",
+            "adil": "adil",
+            "air": "ai"
+        },
+        "dayak-id": {
+            "ahe": "apa",
+            "adil": "adil",
+            "ai": "air"
+        }
+    }
+}

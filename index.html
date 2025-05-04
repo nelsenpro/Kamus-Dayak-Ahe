@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kamus Dayak Kanayatn ↔ Indonesia digital untuk mempermudah penerjemahan kata." />
+  <meta name="keywords" content="Kamus Dayak, Kamus Kanayatn, Penerjemahan Dayak, Kamus Bahasa Dayak" />
+  <meta property="og:title" content="Kamus Dayak Kanayatn ↔ Indonesia" />
+  <meta property="og:description" content="Kamus Dayak Kanayatn ↔ Indonesia digital untuk mempermudah penerjemahan kata." />
+  <meta property="og:image" content="path_to_image.jpg" />
+  <meta property="og:url" content="https://nelsenpro.github.io/kd/" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#4CAF50" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Kamus Dayak Kanayatn ↔ Indonesia</title>
+  <link rel="apple-touch-icon" href="apple-icon.png" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="style.css" as="style" />
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-book"></i> Kamus Dayak Kanayatn ↔ Indonesia</h1>
+  </header>
+
+  <div id="custom-alert" class="alert-dev">
+    <div class="alert-content">
+      <strong class="highlight">Aplikasi ini sedang dalam tahap pengembangan.</strong><br />
+      Kami sedang berusaha untuk meningkatkan pengalaman Anda. Kritik dan saran Anda sangat kami hargai.<br />
+      – <a href="https://wa.me/6285328736706" target="_blank" class="contact-link">Nelsen Niko</a>
+    </div>
+    <button class="close-alert" aria-label="Tutup pemberitahuan">&times;</button>
+  </div>
+
+  <main>
+    <input id="wordInput" type="text" placeholder="Tulis kata di sini..." aria-label="Ketik kata yang akan diterjemahkan" />
+    <div class="buttons">
+      <button class="clear" id="clearButton" type="button" aria-label="Hapus input">
+        <i class="fas fa-broom"></i> Clear
+      </button>
+      <button class="retry" id="retryButton" type="button" aria-label="Coba lagi">
+        <i class="fas fa-sync-alt"></i> Retry
+      </button>
+    </div>
+    <div id="resultBox" class="result" aria-live="polite"></div>
+    <ul id="suggestionsBox" class="suggestions" role="listbox" aria-label="Saran kata"></ul>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Kamus Dayak Kanayatn Digital |
+    <a href="https://github.com/nelsenpro/kd/blob/main/README.md" target="_blank" rel="noopener noreferrer">@nelsen niko</a>
+  </footer>
+
+  <script src="app.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const alertBox = document.getElementById('custom-alert');
+      const closeBtn = alertBox.querySelector('.close-alert');
+      closeBtn.addEventListener('click', () => alertBox.style.display = 'none');
+      setTimeout(() => alertBox.style.display = 'none', 5000);
+
+      const yearSpan = document.getElementById('year');
+      yearSpan.textContent = new Date().getFullYear();
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Service worker registered.', reg))
+        .catch(err => console.error('Service worker registration failed:', err));
+    }
+  </script>
+
+  <style>
+    .alert-dev {
+      background: linear-gradient(135deg, #4e4e4e, #1c1c1c);
+      color: #f0f0f0;
+      padding: 20px 25px;
+      border-radius: 15px;
+      font-family: 'Segoe UI', sans-serif;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      border-left: 4px solid #00c3ff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 380px;
+      transform: translateY(50px);
+      animation: slideUp 0.5s ease-out forwards;
+      box-sizing: border-box;
+    }
+
+    .alert-content {
+      flex: 1;
+      font-size: 16px;
+    }
+
+    .highlight {
+      color: #00c3ff;
+    }
+
+    .contact-link {
+      color: #1de9b6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .close-alert {
+      background: transparent;
+      border: none;
+      color: #aaa;
+      font-size: 22px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-alert:hover {
+      color: #ff4081;
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 480px) {
+      .alert-dev {
+        bottom: 10px;
+        right: 10px;
+        max-width: 90%;
+        font-size: 14px;
+        padding: 12px;
+      }
+
+      .alert-content, .close-alert {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .alert-dev {
+        max-width: 85%;
+      }
+
+      .alert-content {
+        font-size: 16px;
+      }
+    }
+  </style>
+</body>
+</html>
