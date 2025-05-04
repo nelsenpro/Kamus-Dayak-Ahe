@@ -1,7 +1,7 @@
 
 # Kamus Digital Dayak Kanayatn / Ahe
 
-**Website:** [Gunakan Kamus](https://nelsenpro.github.io/kda/)  
+**Website:** [Gunakan Kamus](https://nelsenpro.github.io/kd/)  
 **Pengembang:** Nelsen Niko
 
 Kamus ini merupakan proyek digital terbuka yang bertujuan mendokumentasikan dan memudahkan pembelajaran bahasa **Dayak Kanayatn / Ahe**. Dibuat dengan teknologi web agar mudah diakses dan dikembangkan oleh siapa saja.
@@ -34,19 +34,19 @@ Kamus ini **gratis digunakan** untuk:
 - CSS  
 - JavaScript  
 - JSON  
-- [Python script (opsional)](https://github.com/nelsenpro/kda/blob/main/kd.py)
+- [Python script (opsional)](https://github.com/nelsenpro/kd/blob/main/kd.py)
 
 ---
 
 ## Cara Mengunduh
 
 Klik tautan berikut untuk mengunduh kode sumber:  
-[Download ZIP](https://github.com/nelsenpro/kda/archive/refs/heads/main.zip)
+[Download ZIP](https://github.com/nelsenpro/kd/archive/refs/heads/main.zip)
 
 Atau klon langsung dari GitHub:
 
 ```bash
-git clone https://github.com/nelsenpro/kda.git
+git clone https://github.com/nelsenpro/kd.git
 ```
 
 ---
@@ -54,7 +54,7 @@ git clone https://github.com/nelsenpro/kda.git
 ## Kontribusi
 
 Kontribusi sangat terbuka!  
-Silakan ajukan [*pull request*](https://github.com/nelsenpro/kda/pulls) atau saran melalui [*issue*.](https://github.com/nelsenpro/kda/issues)  
+Silakan ajukan [*pull request*](https://github.com/nelsenpro/kd/pulls) atau saran melalui [*issue*.](https://github.com/nelsenpro/kd/issues)  
 
 ---
 
