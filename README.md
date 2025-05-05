@@ -34,7 +34,7 @@ Kamus ini **gratis digunakan** untuk:
 - CSS  
 - JavaScript  
 - JSON  
-- [Python script (opsional)](https://github.com/nelsenpro/kd/blob/main/kd.py)
+- [Python script (opsional)](https://github.com/nelsenpro/kd/blob/main/app.py)
 
 ---
 
