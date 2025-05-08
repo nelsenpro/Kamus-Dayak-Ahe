@@ -1,5 +1,5 @@
 
-# Kamus Digital Dayak Kanayatn / Ahe
+# Kamus Dayak Ahe / Kanayatn / Landak Kalimantan Barat 
 
 **Website:** [Gunakan Kamus](https://nelsenpro.github.io/kd/)  
 **Pengembang:** Nelsen Niko
